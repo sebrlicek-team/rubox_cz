@@ -19,9 +19,7 @@ const pages = [
     featureTitle:'Zábrany proti ptákům i na členitých stavbách.',
     featureText:'Historické budovy, věže a vysoké fasády často vyžadují práci z lana. Umístění zábran se přizpůsobuje místům, která je potřeba chránit.',
     featureImage:'zabrany-proti-ptakum-ukazka.jpg', featureAlt:'Montáž ochrany proti ptákům na věži',
-    featureCaption:'Ilustrační realizace ze spřízněného webu Jiří Mayer / kominikhk.cz.',
     gallery:true,
-    source:'https://www.kominikhk.cz/vyskove-prace.htm'
   },
   {
     file:'stavebni-prace.html', title:'Stavební práce', number:'02', tag:'PRÁCE NA OBJEKTECH',
@@ -38,8 +36,7 @@ const pages = [
     ],
     featureTitle:'Řešení pro konkrétní objekt.',
     featureText:'Jiný postup vyžaduje rodinný dům, jiný složitější stavební zásah. Pošlete základní informace a fotografie místa; další postup se domluví podle rozsahu prací.',
-    featureImage:'stavebni_prace_hradec_kralove.jpg', featureAlt:'Oprava rodinného domu s lešením',
-    featureCaption:'Fotografie dodaná pro web Rubox servis.'
+    featureImage:'stavebni_prace_hradec_kralove.jpg', featureAlt:'Oprava rodinného domu s lešením'
   },
   {
     file:'kominicke-prace.html', title:'Kominické práce', number:'03', tag:'KOMÍNY A SPALINOVÉ CESTY',
@@ -56,9 +53,7 @@ const pages = [
     ],
     featureTitle:'Když stávající komín nestačí.',
     featureText:'Vložkování a frézování se navrhuje podle skutečného stavu komína, požadovaného průměru a připojeného spotřebiče. Nový komín je další možností, pokud to zadání vyžaduje.',
-    featureImage:'komin-ukazka-belecko.jpg', featureAlt:'Nerezový kouřovod na rozestavěné střeše',
-    featureCaption:'Ilustrační realizace ze spřízněného webu Jiří Mayer / kominikhk.cz.',
-    source:'https://www.kominikhk.cz/kominicke-prace.htm'
+    featureImage:'komin-ukazka-belecko.jpg', featureAlt:'Nerezový kouřovod na rozestavěné střeše'
   },
   {
     file:'zemni-prace.html', title:'Zemní práce', number:'04', tag:'PŘÍPRAVA TERÉNU',
@@ -75,8 +70,7 @@ const pages = [
     ],
     featureTitle:'Podmínky místa rozhodují.',
     featureText:'U zemních prací záleží na přístupu pro techniku, prostoru k manipulaci a podobě terénu. Pošlete místo realizace a stručný popis zamýšlené práce.',
-    featureImage:'zemni_prace_hradec_kralove.jpg', featureAlt:'Zemní práce s bagrem u objektu',
-    featureCaption:'Fotografie dodaná pro web Rubox servis.'
+    featureImage:'zemni_prace_hradec_kralove.jpg', featureAlt:'Zemní práce s bagrem u objektu'
   }
 ];
 
@@ -97,7 +91,7 @@ const galleryOrder = [1,4,2,3,5,10,6,7,8,9];
 function renderGallery(){
   return `<section class="detail-gallery section wrap" id="galerie" aria-labelledby="gallery-title">
     <div class="section-top"><div class="eyebrow"><span class="eyebrow-line"></span> FOTOGALERIE</div><div class="tiny-id">10 SNÍMKŮ</div></div>
-    <div class="detail-section-head"><h2 id="gallery-title">Práce v <span>obrazech.</span></h2><p>Ukázky prací a přístupu ve výšce z dodaného archivu Rubox.</p></div>
+    <div class="detail-section-head"><h2 id="gallery-title">Práce v <span>obrazech.</span></h2><p>Ukázky prací a přístupu ve výšce.</p></div>
     <div class="gallery-grid">${galleryOrder.map((n,i)=>`<button class="gallery-item${i===0?' gallery-featured':''}" type="button" data-gallery="assets/vyskove-galerie/vyskove_prace_Hradec_kralove_${n}.jpg" data-caption="${galleryAlt[n-1]}" aria-label="Zobrazit fotografii ${i+1} z 10: ${galleryAlt[n-1]}"><img src="assets/vyskove-galerie/vyskove_prace_Hradec_kralove_${n}.jpg" alt="${galleryAlt[n-1]}" loading="lazy" decoding="async"><span aria-hidden="true">↗</span></button>`).join('')}</div>
   </section><dialog class="lightbox" id="lightbox" aria-label="Fotogalerie výškových prací"><button class="lightbox-close" type="button" aria-label="Zavřít fotografii">×</button><button class="lightbox-prev" type="button" aria-label="Předchozí fotografie">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lightbox-next" type="button" aria-label="Další fotografie">›</button></dialog>`;
 }
@@ -112,7 +106,7 @@ function render(page){
     <section class="detail-hero" aria-labelledby="detail-title"><img class="detail-hero-image" src="assets/${page.image}" alt=""><div class="detail-hero-shade"></div><div class="wrap detail-hero-inner"><a class="back-link" href="index.html#sluzby">← Všechny služby</a><div class="eyebrow light"><span class="eyebrow-line"></span> ${page.tag}</div><h1 id="detail-title">${page.title}<small>${page.headline}</small></h1><p>${page.lead}</p><a class="button primary" href="index.html?sluzba=${encodeURIComponent(page.title)}#kontakt">Poptat ${page.title.toLowerCase()} <span aria-hidden="true">↗</span></a></div><span class="detail-hero-number">${page.number} / 04</span></section>
     <section class="detail-intro section wrap"><div class="section-top"><div class="eyebrow"><span class="eyebrow-line"></span> ${page.tag}</div><div class="tiny-id">${page.number} — RUBOX SERVIS</div></div><div class="detail-section-head"><h2>${page.introTitle}</h2><p>${page.intro}</p></div></section>
     <section class="detail-offer"><div class="wrap"><div class="section-top"><div class="eyebrow light"><span class="eyebrow-line"></span> CO PRO VÁS MŮŽEME UDĚLAT</div><div class="tiny-id">PŘEHLED ČINNOSTÍ</div></div><div class="offer-grid">${page.items.map(item=>`<article class="offer-item"><span>${item[0]}</span><h3>${item[1]}</h3><p>${item[2]}</p></article>`).join('')}</div></div></section>
-    <section class="detail-feature section wrap"><div class="feature-image${page.file==='vyskove-prace.html'?' enhanced-photo':''}"><img src="assets/${page.featureImage}" alt="${page.featureAlt}" loading="lazy" decoding="async"><p>${page.featureCaption}</p></div><div class="feature-copy"><div class="eyebrow"><span class="eyebrow-line"></span> V PRAXI</div><h2>${page.featureTitle}</h2><p>${page.featureText}</p><a class="text-link dark" href="index.html?sluzba=${encodeURIComponent(page.title)}#kontakt">Popsat své zadání <span aria-hidden="true">↗</span></a></div></section>
+    <section class="detail-feature section wrap"><div class="feature-image${page.file==='vyskove-prace.html'?' enhanced-photo':''}"><img src="assets/${page.featureImage}" alt="${page.featureAlt}" loading="lazy" decoding="async"></div><div class="feature-copy"><div class="eyebrow"><span class="eyebrow-line"></span> V PRAXI</div><h2>${page.featureTitle}</h2><p>${page.featureText}</p><a class="text-link dark" href="index.html?sluzba=${encodeURIComponent(page.title)}#kontakt">Popsat své zadání <span aria-hidden="true">↗</span></a></div></section>
     ${page.gallery?renderGallery():''}
     <section class="detail-next"><div class="wrap"><div class="section-top"><div class="eyebrow"><span class="eyebrow-line"></span> DALŠÍ SLUŽBY</div><div class="tiny-id">RUBOX SERVIS</div></div><div class="next-grid">${others.map(p=>`<a href="${p.file}"><span>${p.number} / 04</span><strong>${p.title}</strong><b aria-hidden="true">↗</b></a>`).join('')}</div></div></section>
     <section class="detail-cta"><div class="wrap"><div><div class="eyebrow light"><span class="eyebrow-line"></span> MÁTE ZADÁNÍ?</div><h2>Řekněte nám o <em>svém projektu.</em></h2><p>Pošlete místo, přibližný rozsah a termín. Společně upřesníme další postup.</p></div><a class="button primary" href="index.html?sluzba=${encodeURIComponent(page.title)}#kontakt">Připravit poptávku <span aria-hidden="true">↗</span></a></div></section>
