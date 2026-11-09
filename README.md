@@ -2,6 +2,12 @@
 
 Statický návrh webu pro výškové, stavební, kominické a zemní práce. Hotové soubory pro hosting jsou ve složce [`dist/`](dist/). Domovská stránka je `dist/index.html`.
 
+## GitHub Pages
+
+Workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) při každém pushi do `main` publikuje obsah `dist/` na GitHub Pages. V nastavení repozitáře je jako **Build and deployment → Source** vybrán **GitHub Actions**. Projektová adresa Pages je `https://sebrlicek-team.github.io/rubox_cz/`; pokud je v nastavení aktivní vlastní doména, GitHub na ni může návštěvníky přesměrovat. Vlastní doména musí mít správně nastavené DNS.
+
+Všechny odkazy a cesty k souborům jsou relativní, aby fungovaly i pod adresářem `/rubox_cz/`. Stránky mají `noindex, nofollow, noarchive`; odkaz na Pages je veřejně přístupný, ale vyhledávače dostanou pokyn jej neindexovat.
+
 ## Místní náhled
 
 Vyžaduje Node.js. Spusťte `node server.cjs` a otevřete `http://127.0.0.1:4173/`.
