@@ -19,6 +19,7 @@
 .contact-data-row strong,.contact-data-row address,.contact-data-row>a{font-family:Manrope,Arial,sans-serif;font-size:21px;font-weight:700;line-height:1.5;font-style:normal;color:var(--ink)}
 .contact-data-row>a{color:var(--blue);display:inline-flex;align-items:center;gap:16px;width:max-content}
 .contact-data-row>a:hover{text-decoration:underline}
+.contact-register p{font-size:14px;line-height:1.65;color:var(--muted);margin:0}
 .contact-ids{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .contact-ids>div{display:flex;flex-direction:column;gap:8px}
 @media(max-width:760px){.contact-hero{min-height:570px}.contact-hero-inner{padding-top:160px;padding-bottom:80px}.contact-hero h1{font-size:clamp(51px,10vw,72px)}.contact-hero p{font-size:16px}.contact-details{padding-top:75px;padding-bottom:85px}.contact-details-grid{grid-template-columns:1fr;gap:32px;margin-top:30px}.contact-details-intro h2{font-size:clamp(42px,8vw,58px)}}
