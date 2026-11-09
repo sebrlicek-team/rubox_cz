@@ -20,7 +20,3 @@ Vyžaduje Node.js. Spusťte `node server.cjs` a otevřete `http://127.0.0.1:4173
 - `dist/assets/` obsahuje logo, video a fotografie včetně galerie výškových prací.
 
 Všechny HTML stránky obsahují `noindex, nofollow, noarchive`. Kontaktní údaje jsou na `dist/kontakt.html`. Poptávkový formulář pouze připravuje text ke zkopírování; nic neodesílá.
-
-Texty pro výškové a kominické práce jsou přepracované podle spřízněného webu [kominikhk.cz – výškové práce](https://www.kominikhk.cz/vyskove-prace.htm) a [kominikhk.cz – kominické práce](https://www.kominikhk.cz/kominicke-prace.htm). Dvě ilustrační fotografie z tohoto webu jsou označené přímo na podstránkách. Ostatní fotografie dodal zadavatel.
-
-Fotografie zábran proti ptákům je na webu nedestruktivně zesvětlena a jemně doostřena pomocí filtru SVG. Původní JPG v `dist/assets/` zůstává zachovaný.

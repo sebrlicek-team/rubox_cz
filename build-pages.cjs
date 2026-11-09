@@ -14,11 +14,16 @@ const pages = [
       ['01','Lanová technika','Umožňuje práci na vysokých budovách, střechách a místech, kam se běžná technika dostává obtížně.'],
       ['02','Údržba a opravy','Práce na fasádách, střechách a konstrukcích, jejichž stav vyžaduje zásah ve výšce.'],
       ['03','Montáže ve výšce','Instalace prvků na objektech, včetně reklamních plachet a dalších montážních úkolů.'],
-      ['04','Ochrana proti ptákům','Montáž zábran na parapety, římsy nebo hřebeny střech podle typu objektu.']
+      ['04','Rizikové kácení stromů','Postupné kácení a prořez stromů v místech, kde je potřeba chránit lidi, budovy a okolní majetek.']
     ],
-    featureTitle:'Zábrany proti ptákům i na členitých stavbách.',
-    featureText:'Historické budovy, věže a vysoké fasády často vyžadují práci z lana. Umístění zábran se přizpůsobuje místům, která je potřeba chránit.',
-    featureImage:'zabrany-proti-ptakum-ukazka.jpg', featureAlt:'Montáž ochrany proti ptákům na věži',
+    featureTitle:'Rizikové kácení stromů.',
+    featureText:'V Hradci Králové, Pardubicích a okolí provádíme postupné kácení vzrostlých stromů tam, kde hrozí poškození majetku nebo ohrožení lidí. Podle přístupu volíme práci z vysokozdvižné plošiny nebo arboristické lanové techniky. Pomáháme také po větru, námraze či těžkém sněhu.',
+    featureBullets:[
+      'Rizikové kácení a prořez stromů pomocí arboristických lanových technik.',
+      'Spolupráce s kvalifikovaným arboristou.',
+      'Řešení pro místa s obtížným přístupem techniky a pro stromy v blízkosti staveb.'
+    ],
+    featureImage:'vyskove-galerie/vyskove_prace_Hradec_kralove_6.jpg', featureAlt:'Rizikové kácení stromu s pomocí pracovní plošiny',
     gallery:true,
   },
   {
@@ -91,7 +96,7 @@ const galleryOrder = [1,4,2,3,5,10,6,7,8,9];
 function renderGallery(){
   return `<section class="detail-gallery section wrap" id="galerie" aria-labelledby="gallery-title">
     <div class="section-top"><div class="eyebrow"><span class="eyebrow-line"></span> FOTOGALERIE</div><div class="tiny-id">10 SNÍMKŮ</div></div>
-    <div class="detail-section-head"><h2 id="gallery-title">Práce v <span>obrazech.</span></h2><p>Ukázky prací a přístupu ve výšce.</p></div>
+    <div class="detail-section-head"><h2 id="gallery-title">Práce v <span>obrazech.</span></h2><p>Ukázky práce na budovách, konstrukcích i při rizikovém kácení stromů.</p></div>
     <div class="gallery-grid">${galleryOrder.map((n,i)=>`<button class="gallery-item${i===0?' gallery-featured':''}" type="button" data-gallery="assets/vyskove-galerie/vyskove_prace_Hradec_kralove_${n}.jpg" data-caption="${galleryAlt[n-1]}" aria-label="Zobrazit fotografii ${i+1} z 10: ${galleryAlt[n-1]}"><img src="assets/vyskove-galerie/vyskove_prace_Hradec_kralove_${n}.jpg" alt="${galleryAlt[n-1]}" loading="lazy" decoding="async"><span aria-hidden="true">↗</span></button>`).join('')}</div>
   </section><dialog class="lightbox" id="lightbox" aria-label="Fotogalerie výškových prací"><button class="lightbox-close" type="button" aria-label="Zavřít fotografii">×</button><button class="lightbox-prev" type="button" aria-label="Předchozí fotografie">‹</button><figure><img alt=""><figcaption></figcaption></figure><button class="lightbox-next" type="button" aria-label="Další fotografie">›</button></dialog>`;
 }
@@ -106,11 +111,11 @@ function render(page){
     <section class="detail-hero" aria-labelledby="detail-title"><img class="detail-hero-image" src="assets/${page.image}" alt=""><div class="detail-hero-shade"></div><div class="wrap detail-hero-inner"><a class="back-link" href="index.html#sluzby">← Všechny služby</a><div class="eyebrow light"><span class="eyebrow-line"></span> ${page.tag}</div><h1 id="detail-title">${page.title}<small>${page.headline}</small></h1><p>${page.lead}</p><a class="button primary" href="index.html?sluzba=${encodeURIComponent(page.title)}#kontakt">Poptat ${page.title.toLowerCase()} <span aria-hidden="true">↗</span></a></div><span class="detail-hero-number">${page.number} / 04</span></section>
     <section class="detail-intro section wrap"><div class="section-top"><div class="eyebrow"><span class="eyebrow-line"></span> ${page.tag}</div><div class="tiny-id">${page.number} — RUBOX SERVIS</div></div><div class="detail-section-head"><h2>${page.introTitle}</h2><p>${page.intro}</p></div></section>
     <section class="detail-offer"><div class="wrap"><div class="section-top"><div class="eyebrow light"><span class="eyebrow-line"></span> CO PRO VÁS MŮŽEME UDĚLAT</div><div class="tiny-id">PŘEHLED ČINNOSTÍ</div></div><div class="offer-grid">${page.items.map(item=>`<article class="offer-item"><span>${item[0]}</span><h3>${item[1]}</h3><p>${item[2]}</p></article>`).join('')}</div></div></section>
-    <section class="detail-feature section wrap"><div class="feature-image${page.file==='vyskove-prace.html'?' enhanced-photo':''}"><img src="assets/${page.featureImage}" alt="${page.featureAlt}" loading="lazy" decoding="async"></div><div class="feature-copy"><div class="eyebrow"><span class="eyebrow-line"></span> V PRAXI</div><h2>${page.featureTitle}</h2><p>${page.featureText}</p><a class="text-link dark" href="index.html?sluzba=${encodeURIComponent(page.title)}#kontakt">Popsat své zadání <span aria-hidden="true">↗</span></a></div></section>
+    <section class="detail-feature section wrap"><div class="feature-image"><img src="assets/${page.featureImage}" alt="${page.featureAlt}" loading="lazy" decoding="async"></div><div class="feature-copy"><div class="eyebrow"><span class="eyebrow-line"></span> V PRAXI</div><h2>${page.featureTitle}</h2><p>${page.featureText}</p>${page.featureBullets?`<ul class="feature-points">${page.featureBullets.map(point=>`<li>${point}</li>`).join('')}</ul>`:''}<a class="text-link dark" href="index.html?sluzba=${encodeURIComponent(page.title)}#kontakt">Popsat své zadání <span aria-hidden="true">↗</span></a></div></section>
     ${page.gallery?renderGallery():''}
     <section class="detail-next"><div class="wrap"><div class="section-top"><div class="eyebrow"><span class="eyebrow-line"></span> DALŠÍ SLUŽBY</div><div class="tiny-id">RUBOX SERVIS</div></div><div class="next-grid">${others.map(p=>`<a href="${p.file}"><span>${p.number} / 04</span><strong>${p.title}</strong><b aria-hidden="true">↗</b></a>`).join('')}</div></div></section>
     <section class="detail-cta"><div class="wrap"><div><div class="eyebrow light"><span class="eyebrow-line"></span> MÁTE ZADÁNÍ?</div><h2>Řekněte nám o <em>svém projektu.</em></h2><p>Pošlete místo, přibližný rozsah a termín. Společně upřesníme další postup.</p></div><a class="button primary" href="index.html?sluzba=${encodeURIComponent(page.title)}#kontakt">Připravit poptávku <span aria-hidden="true">↗</span></a></div></section>
-  </main><footer class="site-footer"><div class="wrap footer-inner"><a href="index.html"><img src="assets/logo_rubox_white_2026.png" alt="Rubox servis s.r.o."></a><span>Výškové · stavební · kominické · zemní práce</span><a href="#top">Zpět nahoru ↑</a></div></footer>${page.file==='vyskove-prace.html'?'<svg class="photo-filters" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><filter id="photo-enhance" color-interpolation-filters="sRGB"><feComponentTransfer in="SourceGraphic" result="lift"><feFuncR type="gamma" amplitude="1" exponent="0.50" offset="0"/><feFuncG type="gamma" amplitude="1" exponent="0.50" offset="0"/><feFuncB type="gamma" amplitude="1" exponent="0.50" offset="0"/></feComponentTransfer><feColorMatrix in="lift" type="saturate" values="1.08" result="color"/><feConvolveMatrix in="color" order="3" kernelMatrix="0 -0.18 0 -0.18 1.72 -0.18 0 -0.18 0" divisor="1" preserveAlpha="true"/></filter></svg>':''}<script src="script.js"></script></body></html>`;
+  </main><footer class="site-footer"><div class="wrap footer-inner"><a href="index.html"><img src="assets/logo_rubox_white_2026.png" alt="Rubox servis s.r.o."></a><span>Výškové · stavební · kominické · zemní práce</span><a href="#top">Zpět nahoru ↑</a></div></footer><script src="script.js"></script></body></html>`;
 }
 
 for (const page of pages) fs.writeFileSync(path.join(out,page.file),render(page),'utf8');
