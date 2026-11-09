@@ -41,7 +41,7 @@ const pages = [
     ],
     featureTitle:'Řešení pro konkrétní objekt.',
     featureText:'Jiný postup vyžaduje rodinný dům, jiný složitější stavební zásah. Pošlete základní informace a fotografie místa; další postup se domluví podle rozsahu prací.',
-    featureImage:'stavebni_prace_hradec_kralove.jpg', featureAlt:'Oprava rodinného domu s lešením'
+    featureImage:'stavebni_prace_hradec_kralove_pardubice.jpg', featureAlt:'Stavební práce na rodinném domě z lešení'
   },
   {
     file:'kominicke-prace.html', title:'Kominické práce', number:'03', tag:'KOMÍNY A SPALINOVÉ CESTY',
