@@ -17,4 +17,4 @@ http.createServer((req,res)=>{
     if (m) { const start=+m[1], end=m[2]?+m[2]:stat.size-1; res.writeHead(206,{'Content-Range':`bytes ${start}-${end}/${stat.size}`,'Content-Length':end-start+1}); fs.createReadStream(target,{start,end}).pipe(res); return; }
   }
   res.writeHead(200,{'Content-Length':stat.size}); fs.createReadStream(target).pipe(res);
-}).listen(4173,'127.0.0.1',()=>console.log('http://127.0.0.1:4173'));
+}).listen(Number(process.env.PORT || 4173),'127.0.0.1',()=>console.log(`http://127.0.0.1:${process.env.PORT || 4173}`));
